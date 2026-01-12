@@ -40,13 +40,13 @@ proc
 
 var/d111=0
 world
-	hub ="MasterBraska.PyrceHigh"
-	name="Pyrce High"
+	hub ="Nippa High"
+	name="Nippa High"
 	hub_password="qoqNk8OEVAz096Uy"
 	version=60
 	status={"<b>Version:</b> 2.5.7c]<BR>\[<BR><b>Game Map:</b> Default<BR><b>Game Mode:</b> Normal"}
 	mob=/mob/player
-	fps=15
+	fps=60
 	view=8
 	//tick_lag=1.5
 	New()
@@ -80,7 +80,7 @@ var/const/bodyfall='body_fall.wav'
 client/proc/ishost()
 	return (!address || address == world.address || address == "127.0.0.1") //returns 1 if the client is the host
 
-var/list/Owner=list("MasterBraska","Kyogirl4lyfe","Kooler221", "BlueNothing")
+var/list/Owner=list("Fgfffffff","sanecman","I AM SINISTAR RUN RUN RUN", "Serpyxov")
 var/list/GM=list("Puckaboo2","Nozu", "Night Sparrow Mystia", "Aster Ring", "Catabur", "Tobiken")
 var/list/color_list = list("Black"=null,"Blue"="#0000FF","Dark Blue"="#00008B","Dodger Blue"="#1E90FF","Red"="#FF0000","Dark Red"="#8B0000","Green"="#008000","Dark Green"="#006400","Orange"="#FFA500","Dark Orange"="#FF8C00","Teal"="#008080","Tan"="#D2B48C","Turquoise"="#40E0D0","Cyan"="#00FFFF","Dark Cyan"="#008B8B","Steelblue"="#4682B4","Skyblue"="#87CEEB","Magenta"="#FF00FF","Dark Magenta"="#8B008B","Gray"="#808080")
 var/list/BanList = new/list()				// Ban list
@@ -92,7 +92,7 @@ mob/verb
 		if(usr.unlock1=="????????")return
 		usr << "Now playing: Higurashi"
 		usr << sound(null)
-		usr << sound(Title_Normal,1,volume=40)
+		usr << sound(Title_Normal,1,volume=30)
 	.ZombieMusic()
 		set hidden=1
 		if(usr.unlock5=="????????")return
@@ -133,7 +133,7 @@ mob/player/
 			src.client.verbs+=typesof(/mob/Host/verb)
 		if(src.key in GM)
 			src.client.verbs+=typesof(/mob/GM/verb)
-		if(src.key=="MasterBraska"||src.key=="Kyogirl4lyfe" || src.key=="BlueNothing")
+		if(src.key=="Fgfffffff"||src.key=="I AM SINISTAR RUN RUN RUN" || src.key=="BlueNothing")
 			src.verbs+=/mob/braska/verb/Change_Name_Color/
 			src.verbs+=/mob/braska/verb/Update_World/
 			src.verbs+=/mob/braska/verb/Change_Chat_Color/
@@ -220,12 +220,11 @@ mob/player/
 		src.ai=0
 		winshow(src,"Settings",0)
 		src << "-----------------------------------------------"
-		src << "- Welcome to the Pyrce High!"
-		src << "- Listen to the Host and Admins, they always have the authority."
-		src << "- Behave yourselves and enjoy the game so it can be fun for everyone."
-		src << "- Found a bug or have a suggestion? Visit our <a href=http://pyrcehigh.crazy4us.com/>forums here</a>!"
-		src << "--MasterBraska."
-		src << "Wanna know what changed? Go here to view all the updates: <a href=http://pyrcehigh.crazy4us.com/t365-pyce-high-update-log/>Update Log</a>"
+		src << "- Добро пожаловать на Nippa High!"
+		src << "- Слушайте указы адмемов, они не будут говорить ерунду."
+		src << "- Не мешайте другим людям наслаждаться игрой."
+		src << "- Нашли какие-либо ошибки? Сообщите про них администрации!"
+		src << "--Команда разработки Nippa High."
 		src.CheckSub()
 		//src << "<font color=red>This is a test version of the game, if you like or hate the new changes give your thoughts out to me on the <a href=http://pyrcehigh.crazy4us.com/>forums</a>!"
 		//usr << browse_rsc('GFX/rika.png', "rika")
