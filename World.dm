@@ -40,7 +40,7 @@ proc
 
 var/d111=0
 world
-	hub ="Nippa High"
+	hub ="MasterBraska.PyrceHigh"
 	name="Nippa High"
 	hub_password="qoqNk8OEVAz096Uy"
 	version=60
@@ -98,19 +98,19 @@ mob/verb
 		if(usr.unlock5=="????????")return
 		usr << "Now playing: Dark Than Black - Howling"
 		usr << sound(null)
-		usr << sound(Title_Zombie,1,volume=40)
+		usr << sound(Title_Zombie,1,volume=30)
 	.DNMusic()
 		set hidden=1
 		if(usr.unlock4=="????????")return
 		usr << "Now playing: Death Note - Zetsubou Billy"
 		usr << sound(null)
-		usr << sound(Title_DN,1,volume=40)
+		usr << sound(Title_DN,1,volume=30)
 	.WitchMusic()
 		set hidden=1
 		if(usr.unlock2=="????????")return
 		usr << "Now playing: Umineko - Anime Opening"
 		usr << sound(null)
-		usr << sound(Title_Witch,1,volume=40)
+		usr << sound(Title_Witch,1,volume=30)
 mob/player/
 	Login()
 		//.=..()
@@ -220,7 +220,7 @@ mob/player/
 		src.ai=0
 		winshow(src,"Settings",0)
 		src << "-----------------------------------------------"
-		src << "- Добро пожаловать на Nippa High!"
+		src << "- Добро пожаловать на Nippa High! Благодарим MasterBraska за то, что он создал первоначальную итерацию данного билда!"
 		src << "- Слушайте указы адмемов, они не будут говорить ерунду."
 		src << "- Не мешайте другим людям наслаждаться игрой."
 		src << "- Нашли какие-либо ошибки? Сообщите про них администрации!"
