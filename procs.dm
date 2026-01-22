@@ -1103,7 +1103,7 @@ mob/owner/verb
 			I.overlays+=C
 			I.chatavatar='speech.dmi'
 			for(var/mob/n in world)
-				if(n.key in Owner)
+				if(n.key in Owner&&(AntagNotices==1))
 					n << "<font color=red>Admin Notice: [I]([I.key]) is the Ghost"
 		else if(M=="Killer")
 			var/obj/weapons/Knife/K=new/obj/weapons/Knife
@@ -1112,7 +1112,7 @@ mob/owner/verb
 			I.contents+=K
 			I << "<b>You are the killer!</b> ... But don't tell anyone. You've killed one of the faculty members and left her body in the main courtyard, heh. Your role in this game is to kill every other player, while surviving yourself. Therefore, it isn't a great idea to tell everyone that you're the killer. Use your wits and various tools around the school to help in this goal."
 			for(var/mob/n in world)
-				if(n.key in Owner)
+				if(n.key in Owner&&(AntagNotices==1))
 					n << "<font color=red>Admin Notice: [I]([I.key]) is the Killer"
 		else if(M=="Doppelganger")
 			for(var/mob/corpse/n in world)
@@ -1123,7 +1123,7 @@ mob/owner/verb
 					n.currentrole=null
 			I.currentrole="The Doppelganger"
 			I.hp=200
-		else if (M=="Kira")
+		else if (M=="Kira"&&(AntagNotices==1))
 			I << " <b>You are Kira</b> ... You're not sure where you obtained this book but you know that it can kill with a name and face. You have killed the teacher with this magicial notebook."
 			for(var/mob/n in world)
 				if(n.key in Owner)
@@ -1181,6 +1181,14 @@ mob/owner/verb
 			//for(var/area/N in view(M.loc))
 			//	N.luminosity=0
 			M.RamielAI()
+	AntagNotices()
+		set category = "Admin"
+		if(AntagNotices==1)
+			AntagNotices=0
+			usr << "Notices has been disabled"
+		else
+			AntagNotices=1
+			usr << "Notices has been enabled"
 	Admin_Announce(T as text)
 		set category="Admin"
 		if(T=="")return

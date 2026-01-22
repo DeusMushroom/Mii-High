@@ -254,7 +254,7 @@ mob/proc/HosterOptions()
 	set hidden = 1
 	if(GameOn==1)return
 	winshow(usr,"hostopt",1)
-	winset(src,"hostopt","size=262x394")
+	winset(src,"hostopt","size=400x500")
 	winset(usr,"LAutopolldelay","Text=\"Polling Delay: [pollshowdelay] Seconds\"")
 	winset(usr,"LAutohostdelay","Text=\"Auto-Host Wait: [autohostshowdelay] Minutes\"")
 	winset(usr,"LMap","Text=\"Current Map: [mapp]\"")

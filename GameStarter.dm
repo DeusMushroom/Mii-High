@@ -28,6 +28,7 @@ mob/proc
 		worldsave()
 var
 	worldcreator="Unknown"
+	AntagNotices=1
 
 var/list/spawns=list("1A","2A","1B","2B","1C","2C","1D","2D","1AA","2AA","1BB","2BB","1DD","2DD","Caf1","Caf2","Caf3","Caf","Caf4")
 //var/list/MaleFirstNames=list("James","Ryo","Johann","Kenn","Mikado","Donald","Sho","Shuuya","Edo","Jin","Takashi","Kaede","Keiichi","Vicious","Shiki","Funai")
@@ -385,7 +386,7 @@ proc/StartGame()
 		I.overlays+=C
 		I.chatavatar='speech.dmi'
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [I]([I.key]) is the Ghost"
 	if(gamemode=="Zombie")
 		var/mob/I=pick(killerpopper)
@@ -541,7 +542,7 @@ proc/StartGame()
 		I.classickira=1
 		I << " <b>You are Kira</b> ... You're not sure where you obtained this book but you know that it can kill with a name and face. You have killed the teacher with this magicial notebook."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [I]([I.key]) is the Kira(Classic)"
 		var/obj/Misc/Death_Note2/b=new
 		I.contents+=b
@@ -552,7 +553,7 @@ proc/StartGame()
 		p.classickira=1
 		p << " <b>You are Shinigami Eyes</b> ... You're not sure where you got this ability but you can see the names of people over their heads, you also heard that Kira is located somewhere in the school."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [p]([p.key]) is the Shinigami Eyes(Classic)"
 		p.addname()
 	if(gamemode=="Ghost")
@@ -585,7 +586,7 @@ proc/StartGame()
 		world << "<big><b><font color=red>Warning:</b></font> Two Dead bodies located on the premises. Simple program analysis highly suggest that it was murder or assisted suicide; saving video feed from just before the event. Facility has been locked down until This System's authorities can be reached."
 		B << "<b>You are the killer!</b> ... But don't tell anyone. You killed the teacher and left her corpse in the courtyard, after killing the teacher you were caught by another student which you had to kill as well to keep quite, you didn't want them telling the other before you killed them as well. Your goal is simple, kill all other students without getting yourself caught."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [B]([B.key]) is the Killer"
 		//Ghost Seer, no msg.
 		var/mob/a=pick(killerpopper)
@@ -594,7 +595,7 @@ proc/StartGame()
 		a.currentrole="The Ghost Whisperer"
 		a.see_invisible=51
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [a]([a.key]) is the Ghost Whisperer"
 	if(gamemode=="Death Note")
 		if(hidemsg==0)world << "<big><b><font color=red>Warning:</b></font> Dead body located on the premises. Simple program analysis highly suggest either murder or assisted suicide; saving video feed from just before the event. Facility has been locked down until This System's authorities can be reached."
@@ -616,7 +617,7 @@ proc/StartGame()
 			I.isL=1
 			I << " <b>You are the Detective</b> ... You have come to this school to investigate the kira case going on around here."
 			for(var/mob/n in world)
-				if(n.key in Owner)
+				if(n.key in Owner&&(AntagNotices==1))
 					n << "<font color=red>Admin Notice: [I]([I.key]) is the Detective"
 			var/obj/Misc/Paper_Sheet/N=new
 			var/sp=rand(1,40)
@@ -632,7 +633,7 @@ proc/StartGame()
 		a.kira=1
 		a << " <b>You are the Kira</b> ... You found this notebook laying randomly on the ground outside of the school earlier today, I wonder what it does?."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [a]([a.key]) is the Second Kira"
 		var/obj/Misc/Death_Note2/b=new
 		a.contents+=b
@@ -676,7 +677,7 @@ proc/StartGame()
 		if(chancer>1)world << "<big><b><font color=red>Warning:</b></font> Dead body located on the premises. Simple program analysis highly suggest either murder or assisted suicide; saving video feed from just before the event. Facility has been locked down until This System's authorities can be reached."
 		B << "<b>You are the killer!</b> ... But don't tell anyone. You've killed one of the faculty members and left her body in the main courtyard, heh. Your role in this game is to kill every other player, while surviving yourself. Therefore, it isn't a great idea to tell everyone that you're the killer. Use your wits and various tools around the school to help in this goal."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [B]([B.key]) is the Killer"
 		if(chancer==1&&playersjoined<2)
 			suspectuse=1
@@ -695,7 +696,7 @@ proc/StartGame()
 			world << "<big><b><font color=red>Warning:</b></font> Dead body located on the premises. After advanced program analysis the suspect is a [gnr] with the possible hair color \icon[I], and is believed to be associated with the killing of the teacher. Facility has been locked down until This System's authorities can be reached."
 			P << "<b>You are the Suspect!</b> You are accused of being the killer whom slaughtered the teacher. Whether you are innocent or not, no one actually knows. However, given the current circumstances, it may be appropriate to keep an extremely low profile, if possible."
 			for(var/mob/n in world)
-				if(n.key in Owner)
+				if(n.key in Owner&&(AntagNotices==1))
 					n << "<font color=red>Admin Notice: [P]([P.key]) is the Suspect"
 	else if(gamemode=="Doppelganger")
 		var/mob/B=pick(killerpopper)
@@ -708,7 +709,7 @@ proc/StartGame()
 		world << "<big><b><font color=red>Warning:</b></font> Dead body located on the premises. Simple program analysis highly suggest either murder or assisted suicide; saving video feed from just before the event. Facility has been locked down until This System's authorities can be reached."
 		B << "<b>You are the Doppelganger!</b> ... But let's not tell anyon that, this face you currently have on was stolen from a student after you violently murdered the teacher, her corpse is in the court yard. Your goal is to kill people, take their bodies as a cover up, or even toy with others. Murdering the whole school is your main goal."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if((n.key in Owner)&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [B]([B.key]) is the Doppelganger"
 	else if(gamemode=="Death Note Classic")
 		if(hidemsg==0)world << "<big><b><font color=red>Warning:</b></font> Dead body located on the premises. Simple program analysis highly suggest either murder or assisted suicide; saving video feed from just before the event. Facility has been locked down until This System's authorities can be reached."
@@ -721,7 +722,7 @@ proc/StartGame()
 			I.isL=1
 			I << " <b>You are the Detective</b> ... You have come to this school to investigate the kira case going on around here."
 			for(var/mob/n in world)
-				if(n.key in Owner)
+				if(n.key in Owner&&(AntagNotices==1))
 					n << "<font color=red>Admin Notice: [I]([I.key]) is the Detective"
 			var/obj/Misc/Paper_Sheet/N=new
 			var/sp=rand(1,40)
@@ -737,7 +738,7 @@ proc/StartGame()
 		a.kira=1
 		a << " <b>You are the Kira</b> ... You found this notebook laying randomly on the ground outside of the school earlier today, I wonder what it does?."
 		for(var/mob/n in world)
-			if(n.key in Owner)
+			if(n.key in Owner&&(AntagNotices==1))
 				n << "<font color=red>Admin Notice: [a]([a.key]) is the Second Kira"
 		var/obj/Misc/Death_Note2/b=new
 		a.contents+=b
