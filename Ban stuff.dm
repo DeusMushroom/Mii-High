@@ -86,7 +86,7 @@ proc
 		for(var/mob/A in world)
 			if(!A.client)
 				del A
-		if(mapp!="Default"||mapp!="Default 2")SwapMaps_Unload(mapp)
+		if(mapp!="Default"||mapp!="Default 2"||mapp!="WorldV")SwapMaps_Unload(mapp)
 	clean_up_the_rest()
 		world.maxx=16
 		world.maxy=16

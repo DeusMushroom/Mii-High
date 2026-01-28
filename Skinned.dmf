@@ -1101,7 +1101,7 @@ window "Profileconfig"
 window "TheMainWin"
 	elem "TheMainWin"
 		type = MAIN
-		pos = 112,0
+		pos = 33,10
 		size = 1786x834
 		anchor1 = -1,-1
 		anchor2 = -1,-1
@@ -1111,12 +1111,17 @@ window "TheMainWin"
 		title = "Dream Seeker"
 		macro = "macro"
 		menu = "menu"
+		outer-size = 1808x945
+		outer-pos = 33,10
+		inner-size = 1786x834
+		inner-pos = 11,75
+		screen-size = 1920x1128
 	elem "input"
 		type = INPUT
-		pos = 0,816
-		size = 1576x30
-		anchor1 = 0,98
-		anchor2 = 86,100
+		pos = 0,808
+		size = 1584x30
+		anchor1 = 0,97
+		anchor2 = 89,100
 		font-family = "monospace"
 		font-size = 12
 		text-color = #ff2600
@@ -1127,7 +1132,7 @@ window "TheMainWin"
 	elem "mainwin"
 		type = CHILD
 		pos = 0,-16
-		size = 1786x831
+		size = 1786x824
 		anchor1 = 0,0
 		anchor2 = 100,98
 		background-color = #002080
@@ -1139,9 +1144,9 @@ window "TheMainWin"
 		lock = left
 	elem "worder"
 		type = CHILD
-		pos = 1576,816
+		pos = 1580,808
 		size = 208x30
-		anchor1 = 86,98
+		anchor1 = 88,97
 		anchor2 = 100,100
 		background-color = #000000
 		border = line
@@ -1291,11 +1296,6 @@ window "charcreation"
 		statusbar = false
 		can-minimize = false
 		image-mode = center
-		outer-size = 822x856
-		outer-pos = 434,0
-		inner-size = 800x800
-		inner-pos = 11,45
-		screen-size = 1920x1128
 	elem "label4"
 		type = LABEL
 		pos = 344,648
@@ -1304,7 +1304,6 @@ window "charcreation"
 		anchor2 = 81,91
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Selected slot will be used when joining the round."
@@ -1363,7 +1362,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 20
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Gender"
@@ -1417,7 +1415,6 @@ window "charcreation"
 		anchor2 = 47,100
 		font-family = "Comic Sans MS"
 		font-size = 8
-		background-color = none
 		border = sunken
 		saved-params = "is-checked"
 		text = "Change Hair Color"
@@ -1431,7 +1428,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Charcter preview"
@@ -1443,7 +1439,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Provide a first and last name."
@@ -1486,7 +1481,6 @@ window "charcreation"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ffffff
-		background-color = none
 		saved-params = "is-checked"
 		text = "______"
 		command = "setcharname"
@@ -1710,6 +1704,11 @@ window "infoer"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 326x300
+		outer-pos = 434,0
+		inner-size = 306x280
+		inner-pos = 10,10
+		screen-size = 1920x1128
 	elem "infopaner"
 		type = INFO
 		pos = 0,0
@@ -1904,6 +1903,11 @@ window "outputpane"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 660x486
+		outer-pos = 434,0
+		inner-size = 640x466
+		inner-pos = 10,10
+		screen-size = 1920x1128
 	elem "output1"
 		type = OUTPUT
 		pos = 0,0
@@ -1935,6 +1939,11 @@ window "panedmap"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 592x440
+		outer-pos = 434,0
+		inner-size = 572x420
+		inner-pos = 10,10
+		screen-size = 1920x1128
 	elem "Themap"
 		type = MAP
 		pos = 0,0
@@ -2300,6 +2309,11 @@ window "rightpanel"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 792x416
+		outer-pos = 434,0
+		inner-size = 772x396
+		inner-pos = 10,10
+		screen-size = 1920x1128
 	elem "label1"
 		type = LABEL
 		pos = 8,8
@@ -2521,9 +2535,10 @@ window "thepanes"
 	elem "thepanes"
 		type = MAIN
 		pos = 434,0
-		size = 640x448
+		size = 640x434
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -2531,10 +2546,15 @@ window "thepanes"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 660x454
+		outer-pos = 434,0
+		inner-size = 640x434
+		inner-pos = 10,10
+		screen-size = 1920x1128
 	elem "paner"
 		type = CHILD
 		pos = 0,0
-		size = 640x448
+		size = 640x434
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = #002080

@@ -2338,7 +2338,7 @@ proc
 				var/obj/Misc/Mild_Sedetive/I = new/obj/Misc/Mild_Sedetive
 				O.contents+=I
 		:noitems
-		if(mapp=="Default"||mapp=="Default 2")
+		if(mapp=="Default"||mapp=="Default 2"||mapp=="WorldV")
 			for(var/obj/Containers_Stationed/Key_Locker/O in world)
 				var/obj/key/I=new
 				I.tag="office"

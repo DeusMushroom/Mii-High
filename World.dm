@@ -852,7 +852,7 @@ mob/Stat()
 				stat("Game Mode:","Secret")
 			else
 				stat("Game Mode:","[gamemode]")
-			if(mapp=="Default"||mapp=="Default 2")
+			if(mapp=="Default"||mapp=="Default 2"||mapp=="WorldV")
 				stat("Map:","[mapp]")
 			else
 				stat("Map:","[mapp] (Custom Map)")
@@ -1086,7 +1086,7 @@ proc
 				world.tick_lag=1
 			SpawnRate(spawnrate)
 			Lethality(llevel)
-			if(mapp=="Default"||mapp=="Default 2")
+			if(mapp=="Default"||mapp=="Default 2"||mapp=="WorldV")
 				goto nomap
 			else
 				var/id=mapp

@@ -103,7 +103,7 @@ mob/Host/verb
 	.Hostchangemap()
 		set hidden=1
 		if(GameOn==1)return
-		var/mpp=input(usr,"Which map do you wish to use?") in list("Default","Default 2","Custom","Cancel")
+		var/mpp=input(usr,"Which map do you wish to use?") in list("Default","Default 2","WorldV","Custom","Cancel")
 		if(mpp=="Cancel")return
 		if(mpp=="Default")
 			mapp="Default"
@@ -113,6 +113,10 @@ mob/Host/verb
 		if(mpp=="Default 2")
 			mapp="Default 2"
 			world << "Map changed to the second default map"
+			updateworld()
+		if(mpp=="WorldV")
+			mapp="WorldV"
+			world << "Map changed to the Mini School map"
 			updateworld()
 			//return
 		if(mpp=="Custom")

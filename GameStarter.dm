@@ -257,7 +257,7 @@ proc/StartGame()
 		oldmode="Secret"
 		gamemode=pick("Normal","Witch","Zombie","Doppelganger","Secret","Ghost","Vampire","Death Note", "Death Note Classic", "Extended")// "Slender")
 		hidemsg=1
-	if(mapp=="Default"||mapp=="Default 2")
+	if(mapp=="Default"||mapp=="Default 2"||mapp=="WorldV")
 		world << "Loading the default map."
 	else
 		world << "Loading [mapp]"
@@ -272,6 +272,8 @@ proc/StartGame()
 		dmmload('Default.dmm')
 	else if(mapp=="Default 2")
 		dmmload('Default2.dmm')
+	else if(mapp=="WorldV")
+		dmmload('WorldV.dmm')
 	//sleep(1)
 	ItemSpawner()
 	GameOn=1
