@@ -84,7 +84,7 @@ mob/proc/GameTitle()
 var/beatricesee=2
 var/adminicon				='crown.dmi'
 mob/var
-	chatavatar				='speech.dmi'
+	chatavatar				='Oi.dmi'
 	charhairavatar=null
 	dexterity=20
 	charhairavatarcolor=null
