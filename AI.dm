@@ -123,7 +123,7 @@ mob/verb
 mob/ramiel
 	icon='Oi-Ao.dmi'
 	name="Purple, The Angel"
-	hp=500
+	hp=650
 	Click()
 		if(usr.playing==0)return
 		if(usr.shinigami==1)return
