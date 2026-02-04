@@ -122,8 +122,8 @@ mob/verb
 			usr.setprofile=mess
 mob/ramiel
 	icon='Oi-Ao.dmi'
-	name="Purple, The Angel"
-	hp=650
+	name="Blue, The AO"
+	hp=400
 	Click()
 		if(usr.playing==0)return
 		if(usr.shinigami==1)return
@@ -217,10 +217,10 @@ mob/proc/RamielAI()
 	spawn()src.RamielAI()
 mob/proc/DeadCheckRamiel()
 	if(src.hp<1)
-		world << "<font color=red>The Purple has been defeated, congrats."
+		world << "<font color=red>The Blue has been defeated, congrats."
 		EndGame()
 mob/proc/RamielMartyr()
-	world << "<big><font color=red>Verse 1 (Martyr)</font> activated by Purple!"
+	world << "<big><font color=red>Verse 1 (Blue's scream)</font> activated by Blue!"
 	for(var/mob/M in world)
 		if(M.playing==1&&M.dead==0)
 			var/rander=rand(1,3)
@@ -245,7 +245,7 @@ mob/proc/HellsGate()
 		del O
 mob/proc/RamielHellsgate()
 	if(GameOn==0)return
-	world << "<b><i><font color=red>Hells Gate</font></i></b> activated by Purple!"
+	world << "<b><i><font color=red>Hells Gate</font></i></b> activated by Blue!"
 	for(var/mob/M in world)
 		if(M.playing==1&&M.dead==0)
 			src.loc=M.loc
@@ -253,13 +253,13 @@ mob/proc/RamielHellsgate()
 			break
 	for(var/mob/M in oview(src))
 		if(M.playing==1&&M.dead==0)
-			M << "Purple appears!"
+			M << "Blue appears!"
 			sleep(10)
 			M.hp-=rand(1,30)
 			M.DeathCheck()
 	CheckGame()
 mob/proc/RamielJudgement()
-	world << "<b><i><font color=red>Judgement</font></i></b> activated by Purple!"
+	world << "<b><i><font color=red>Judgement</font></i></b> activated by Blue!"
 	if(GameOn==0)return
 	for(var/mob/M in world)
 		if(M.playing==1&&M.dead==0)
@@ -269,7 +269,7 @@ mob/proc/RamielJudgement()
 			break
 	for(var/mob/M in view(src))
 		if(M.playing==1&&M.dead==0)
-			M << "Purple appears!"
+			M << "Blue appears!"
 			sleep(10)
 			M.hp-=rand(1,30)
 			M.DeathCheck()
