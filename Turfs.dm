@@ -2624,7 +2624,7 @@ obj/
 		Girls
 			icon_state="girls"
 		Girls2
-			icon_state="girls2"
+			icon_state="Kitch"
 		Boys
 			icon_state="boys"
 		Boys2
