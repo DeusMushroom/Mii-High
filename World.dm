@@ -44,9 +44,9 @@ world
 	name="Nippa High"
 	hub_password="kMZy3U5jJHSiBQjr"
 	version=60
-	status={"<b>Version:</b> 2.5.7c]<BR>\[<BR><b>Game Map:</b> Default<BR><b>Game Mode:</b> Normal"}
+	status={"<b>Game's name:</b> Mii High]<BR>\[<BR><b>Game Map:</b> Default<BR><b>Game Mode:</b> Normal"}
 	mob=/mob/player
-	fps=60
+	fps=70
 	view=8
 	//tick_lag=1.5
 	New()
