@@ -42,7 +42,7 @@ var/d111=0
 world
 	hub ="Exadv1.spacestation13"
 	name="Nippa High"
-	hub_password="kMZy3U5jJHSiBQj"
+	hub_password="kMZy3U5jJHSiBQjr"
 	version=60
 	status={"<b>Version:</b> 2.5.7c]<BR>\[<BR><b>Game Map:</b> Default<BR><b>Game Mode:</b> Normal"}
 	mob=/mob/player
