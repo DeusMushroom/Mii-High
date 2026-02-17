@@ -177,8 +177,8 @@ menu "menu"
 		command = ""
 		saved-params = "is-checked"
 	elem 
-		name = "Forums"
-		command = "showforums"
+		name = "Hotkeys Help"
+		command = "hotkeyhelp"
 		category = "Help"
 		saved-params = "is-checked"
 	elem 
@@ -1111,11 +1111,6 @@ window "TheMainWin"
 		title = "Dream Seeker"
 		macro = "macro"
 		menu = "menu"
-		outer-size = 1808x945
-		outer-pos = 33,10
-		inner-size = 1786x834
-		inner-pos = 11,75
-		screen-size = 1920x1128
 	elem "input"
 		type = INPUT
 		pos = 0,808
@@ -1704,11 +1699,6 @@ window "infoer"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 326x300
-		outer-pos = 434,0
-		inner-size = 306x280
-		inner-pos = 10,10
-		screen-size = 1920x1128
 	elem "infopaner"
 		type = INFO
 		pos = 0,0
@@ -1903,11 +1893,6 @@ window "outputpane"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 660x486
-		outer-pos = 434,0
-		inner-size = 640x466
-		inner-pos = 10,10
-		screen-size = 1920x1128
 	elem "output1"
 		type = OUTPUT
 		pos = 0,0
@@ -1939,11 +1924,6 @@ window "panedmap"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 592x440
-		outer-pos = 434,0
-		inner-size = 572x420
-		inner-pos = 10,10
-		screen-size = 1920x1128
 	elem "Themap"
 		type = MAP
 		pos = 0,0
@@ -2309,11 +2289,6 @@ window "rightpanel"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 792x416
-		outer-pos = 434,0
-		inner-size = 772x396
-		inner-pos = 10,10
-		screen-size = 1920x1128
 	elem "label1"
 		type = LABEL
 		pos = 8,8
@@ -2538,7 +2513,6 @@ window "thepanes"
 		size = 640x434
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -2546,11 +2520,6 @@ window "thepanes"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 660x454
-		outer-pos = 434,0
-		inner-size = 640x434
-		inner-pos = 10,10
-		screen-size = 1920x1128
 	elem "paner"
 		type = CHILD
 		pos = 0,0

@@ -1106,13 +1106,16 @@ mob
 mob/verb/.showabout()
 	set hidden = 1
 	winshow(usr,"about",1)
-mob/verb/.showforums()
+mob/verb/.hotkeyhelp()
 	set hidden = 1
-	var/url2="http://pyrcehigh.crazy4us.com/"
-	winshow(usr,"wbrowse",1)
-	usr << browse(\
-"<html><head></head><body onLoad=\"parent.location='[url2]'\">\
-</body></html>","window=webbrowse")
+	usr << {"<u>Hotkeys:</u>
+<i>WASD - Walk
+C - Run 
+T - Say 
+5 - Emote 
+Y - Whisper 
+O - OOC 
+CTRL + WASD - Look around</i>"}
 mob/var/list/ignorelist=new/list()
 mob/verb
 	.AddIgnore()
