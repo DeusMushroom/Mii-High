@@ -860,6 +860,75 @@ obj/Misc
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
+	Apple
+		icon='apple.dmi'
+		idesc="Juicy, red apple! It contains many vitamins."
+		verb
+			Pick_Up()
+				set src in oview(1)
+				if(usr.playing==0)return
+				Move(usr,src)
+			Drop()
+				set src in usr
+				set category = null
+				if(usr.playing==0)return
+				//if(src==usr.equipped)return
+				Move(usr.loc,src)
+			Eat()
+				set src in usr
+				set category = null
+				if(usr.playing==0)return
+				usr << "You eat an apple, feeling much more energized."
+				usr.stamina+=rand(10,60)
+				if(usr.stamina>99)usr.stamina=100
+				usr.updatesp()
+				del src
+	Banana
+		icon='banana.dmi'
+		idesc="A healthy bunch of bananas. It looks delicious."
+		verb
+			Pick_Up()
+				set src in oview(1)
+				if(usr.playing==0)return
+				Move(usr,src)
+			Drop()
+				set src in usr
+				set category = null
+				if(usr.playing==0)return
+				//if(src==usr.equipped)return
+				Move(usr.loc,src)
+			Eat()
+				set src in usr
+				set category = null
+				if(usr.playing==0)return
+				usr << "You eat a banana, feeling much more energized."
+				usr.stamina+=rand(10,60)
+				if(usr.stamina>99)usr.stamina=100
+				usr.updatesp()
+				del src
+	Orange
+		icon='orange.dmi'
+		idesc="A delicious orange. It contains a lot of vitamin C!"
+		verb
+			Pick_Up()
+				set src in oview(1)
+				if(usr.playing==0)return
+				Move(usr,src)
+			Drop()
+				set src in usr
+				set category = null
+				if(usr.playing==0)return
+				//if(src==usr.equipped)return
+				Move(usr.loc,src)
+			Eat()
+				set src in usr
+				set category = null
+				if(usr.playing==0)return
+				usr << "You eat an orange, feeling much more energized."
+				usr.stamina+=rand(10,60)
+				if(usr.stamina>99)usr.stamina=100
+				usr.updatesp()
+				del src
 	Yen
 		icon='money.dmi'
 		curamount=25
@@ -2239,6 +2308,15 @@ proc
 			if(rander3==1)
 				var/obj/Misc/Syringe/I = new/obj/Misc/Syringe
 				O.contents+=I
+			if(rander3==2)
+				var/obj/Misc/Apple/I = new/obj/Misc/Apple
+				O.contents+=I
+			if(rander3==3)
+				var/obj/Misc/Banana/I = new/obj/Misc/Banana
+				O.contents+=I
+			if(rander3==4)
+				var/obj/Misc/Orange/I = new/obj/Misc/Orange
+				O.contents+=I
 
 		for(var/obj/Containers/School_Desk/O in world)
 			var/rander=rand(1,knifespawn)
@@ -2270,6 +2348,15 @@ proc
 				O.contents+=I
 			if(rander7==rand(1,5))
 				var/obj/Misc/Smoke_Bomb/I = new/obj/Misc/Smoke_Bomb
+				O.contents+=I
+			if(rander6==1)
+				var/obj/Misc/Apple/I = new/obj/Misc/Apple
+				O.contents+=I
+			if(rander6==2)
+				var/obj/Misc/Banana/I = new/obj/Misc/Banana
+				O.contents+=I
+			if(rander6==3)
+				var/obj/Misc/Orange/I = new/obj/Misc/Orange
 				O.contents+=I
 		var/obj/J=pick(Containers4storage)
 		var/obj/Misc/Door_Code/Kk = new/obj/Misc/Door_Code
