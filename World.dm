@@ -483,6 +483,7 @@ Beatrice_Buttons
 								return
 		//	usr << "This corpse cannot be resurrected."
 
+var/CharacterSetup[]=list(new/Buttons/CharacterSetup)
 var/join[]=list(new/Buttons/Join)
 var/join2[]=list(new/Buttons/Join2)
 var/watch[]=list(new/Buttons/Watch)
@@ -508,6 +509,13 @@ Buttons
 ///	proc/Interact()
 //	Click()
 //		src.Interact()
+	CharacterSetup
+		icon_state="ciel"
+		name="Character Setup"
+		Click()
+			usr.custcharacter()
+			if(usr.joined==0)return
+			if(GameOn==1)return
 	Join
 		icon_state="join"
 		name="Join Game!"
@@ -865,7 +873,7 @@ mob/Stat()
 			if(GameOn==1&&usr.playing==0&&usr.watching==0&&Resetting==0)
 				stat(watch)
 			if(GameOn==0)
-				stat(helper)
+				stat(CharacterSetup)
 			if(usr.joiner==0&&GameOn==0&&GameOver==0&&Resetting==0)
 				stat(join)
 			else if(usr.joiner==1&&GameOn==0&&GameOver==0&&Resetting==0)
