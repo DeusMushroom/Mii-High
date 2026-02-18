@@ -879,7 +879,7 @@ obj/Misc
 				set category = null
 				if(usr.playing==0)return
 				usr << "You eat an apple, feeling much more energized."
-				usr.stamina+=rand(10,60)
+				usr.stamina+=rand(10,30)
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
@@ -902,7 +902,7 @@ obj/Misc
 				set category = null
 				if(usr.playing==0)return
 				usr << "You eat a banana, feeling much more energized."
-				usr.stamina+=rand(10,60)
+				usr.stamina+=rand(10,30)
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
@@ -925,7 +925,7 @@ obj/Misc
 				set category = null
 				if(usr.playing==0)return
 				usr << "You eat an orange, feeling much more energized."
-				usr.stamina+=rand(10,60)
+				usr.stamina+=rand(10,30)
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
