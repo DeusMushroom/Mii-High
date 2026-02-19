@@ -96,8 +96,14 @@ macro "macro"
 		name = "CTRL"
 		command = "seenames"
 	elem 
+		name = "SHIFT"
+		command = "Examine"
+	elem 
 		name = "CTRL+UP"
 		command = "seenames2"
+	elem 
+		name = "SHIFT+UP"
+		command = "ExamineReleased"
 
 
 menu "menu"
@@ -1031,11 +1037,17 @@ window "PlayerConfig"
 		size = 387x459
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = "pos;is-minimized;is-maximized"
 		title = "Client Settings"
 		statusbar = false
 		can-resize = false
+		outer-size = 409x515
+		outer-pos = 434,0
+		inner-size = 387x459
+		inner-pos = 11,45
+		screen-size = 1920x1128
 	elem "tab3"
 		type = TAB
 		pos = 0,0
@@ -1047,56 +1059,6 @@ window "PlayerConfig"
 		background-color = #000000
 		saved-params = ""
 		tabs = "Volume,Fightmsg,Profileconfig,Misc"
-
-window "Profileconfig"
-	elem "Profileconfig"
-		type = MAIN
-		pos = 434,0
-		size = 387x459
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = #000000
-		saved-params = "pos;is-minimized;is-maximized"
-		title = "Profile"
-		titlebar = false
-		statusbar = false
-		can-close = false
-		can-minimize = false
-		can-resize = false
-		is-pane = true
-	elem "button6"
-		type = BUTTON
-		pos = 0,40
-		size = 96x24
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		font-size = 8
-		saved-params = "is-checked"
-		text = "Save"
-		command = "SaveProf"
-	elem "label13"
-		type = LABEL
-		pos = 60,8
-		size = 292x32
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		font-size = 10
-		text-color = #ffffff
-		background-color = #000000
-		saved-params = ""
-		text = "Character Desc. (Flavor Text)"
-	elem "charprof"
-		type = INPUT
-		pos = 0,64
-		size = 384x395
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		text-color = #ffffff
-		background-color = #000000
-		border = line
-		saved-params = ""
-		multi-line = true
-		no-command = true
 
 window "TheMainWin"
 	elem "TheMainWin"
@@ -1291,18 +1253,46 @@ window "charcreation"
 		statusbar = false
 		can-minimize = false
 		image-mode = center
-	elem "label4"
+		outer-size = 822x856
+		outer-pos = 434,0
+		inner-size = 800x800
+		inner-pos = 11,45
+		screen-size = 1920x1128
+	elem "button6"
+		type = BUTTON
+		pos = 200,584
+		size = 96x24
+		anchor1 = 25,73
+		anchor2 = 37,76
+		font-size = 8
+		background-color = none
+		saved-params = "is-checked"
+		text = "Save"
+		command = "SaveProf"
+	elem "label2"
 		type = LABEL
-		pos = 344,648
-		size = 300x80
-		anchor1 = 43,81
-		anchor2 = 81,91
-		font-size = 10
+		pos = 128,320
+		size = 228x56
+		anchor1 = 16,40
+		anchor2 = 45,47
+		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
-		text = "Selected slot will be used when joining the round."
-		text-wrap = true
+		text = "Flavor Text:"
+	elem "charprof"
+		type = INPUT
+		pos = 197,368
+		size = 600x216
+		anchor1 = 25,46
+		anchor2 = 100,73
+		text-color = #ffffff
+		background-color = #000000
+		border = line
+		saved-params = ""
+		multi-line = true
+		no-command = true
 	elem "charslt3"
 		type = BUTTON
 		pos = 592,264
@@ -1349,23 +1339,12 @@ window "charcreation"
 		command = "ChrSlot2"
 		group = "slots"
 		button-type = pushbox
-	elem "label40"
-		type = LABEL
-		pos = 392,344
-		size = 188x64
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		font-size = 20
-		text-color = #ffffff
-		is-transparent = true
-		saved-params = ""
-		text = "Gender"
 	elem "fmgndr"
 		type = BUTTON
-		pos = 552,408
+		pos = 192,668
 		size = 168x60
-		anchor1 = -1,-1
-		anchor2 = -1,-1
+		anchor1 = 24,84
+		anchor2 = 45,91
 		font-size = 20
 		text-color = #d300ca
 		background-color = #000000
@@ -1376,10 +1355,10 @@ window "charcreation"
 		button-type = radio
 	elem "mgndr"
 		type = BUTTON
-		pos = 312,408
+		pos = 192,616
 		size = 120x60
-		anchor1 = -1,-1
-		anchor2 = -1,-1
+		anchor1 = 24,77
+		anchor2 = 39,85
 		font-size = 20
 		text-color = #142aac
 		background-color = #000000
@@ -1410,6 +1389,7 @@ window "charcreation"
 		anchor2 = 47,100
 		font-family = "Comic Sans MS"
 		font-size = 8
+		background-color = none
 		border = sunken
 		saved-params = "is-checked"
 		text = "Change Hair Color"
@@ -1423,6 +1403,7 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Charcter preview"
@@ -1434,6 +1415,7 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Provide a first and last name."
@@ -1458,8 +1440,8 @@ window "charcreation"
 		type = GRID
 		pos = 0,264
 		size = 192x536
-		anchor1 = -1,-1
-		anchor2 = -1,-1
+		anchor1 = 0,33
+		anchor2 = 24,100
 		text-color = #ffffff
 		background-color = #000000
 		border = sunken
@@ -1476,6 +1458,7 @@ window "charcreation"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ffffff
+		background-color = none
 		saved-params = "is-checked"
 		text = "______"
 		command = "setcharname"
@@ -2186,11 +2169,16 @@ window "playerprofile"
 		anchor2 = -1,-1
 		background-color = #000000
 		is-visible = false
-		saved-params = "pos;size;is-minimized;is-maximized"
+		saved-params = "pos;is-minimized;is-maximized"
 		title = "Player Profile"
 		statusbar = false
 		can-minimize = false
 		can-resize = false
+		outer-size = 739x521
+		outer-pos = 434,0
+		inner-size = 717x465
+		inner-pos = 11,45
+		screen-size = 1920x1128
 	elem "label22"
 		type = LABEL
 		pos = 200,21
@@ -2198,6 +2186,7 @@ window "playerprofile"
 		anchor1 = 28,5
 		anchor2 = 54,9
 		text-color = #ff0000
+		background-color = none
 		is-transparent = true
 		border = line
 		saved-params = ""
@@ -2210,6 +2199,7 @@ window "playerprofile"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Perfect"
@@ -2221,6 +2211,7 @@ window "playerprofile"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ff0000
+		background-color = none
 		is-transparent = true
 		border = line
 		saved-params = ""
@@ -2246,6 +2237,7 @@ window "playerprofile"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ff0000
+		background-color = none
 		is-transparent = true
 		border = line
 		saved-params = ""
@@ -2258,6 +2250,7 @@ window "playerprofile"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Unknown"
