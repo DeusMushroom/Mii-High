@@ -1291,27 +1291,6 @@ window "charcreation"
 		statusbar = false
 		can-minimize = false
 		image-mode = center
-		outer-size = 822x856
-		outer-pos = 434,0
-		inner-size = 800x800
-		inner-pos = 11,45
-		screen-size = 1920x1128
-	elem "GPreview"
-		type = GRID
-		pos = 0,120
-		size = 800x148
-		anchor1 = 0,11
-		anchor2 = 100,34
-		font-family = "@MS PGothic"
-		text-color = #ffffff
-		background-color = #000000
-		border = sunken
-		saved-params = ""
-		on-size = "10"
-		cells = 4x1
-		current-cell = 1,1
-		show-names = false
-		highlight-color = #000000
 	elem "label4"
 		type = LABEL
 		pos = 344,648
@@ -1320,7 +1299,6 @@ window "charcreation"
 		anchor2 = 81,91
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Selected slot will be used when joining the round."
@@ -1379,7 +1357,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 20
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Gender"
@@ -1433,7 +1410,6 @@ window "charcreation"
 		anchor2 = 47,100
 		font-family = "Comic Sans MS"
 		font-size = 8
-		background-color = none
 		border = sunken
 		saved-params = "is-checked"
 		text = "Change Hair Color"
@@ -1447,7 +1423,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Charcter preview"
@@ -1459,10 +1434,26 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Provide a first and last name."
+	elem "GPreview"
+		type = GRID
+		pos = 0,104
+		size = 800x160
+		anchor1 = 0,13
+		anchor2 = 100,33
+		font-size = 100
+		background-color = #000000
+		border = sunken
+		drop-zone = false
+		saved-params = ""
+		cells = 4x2
+		current-cell = 2,2
+		show-lines = vertical
+		show-names = false
+		line-color = #000000
+		highlight-color = #000000
 	elem "HairList"
 		type = GRID
 		pos = 0,264
@@ -1485,9 +1476,8 @@ window "charcreation"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ffffff
-		background-color = none
 		saved-params = "is-checked"
-		text = "_________"
+		text = "______"
 		command = "setcharname"
 	elem "usrname"
 		type = LABEL
