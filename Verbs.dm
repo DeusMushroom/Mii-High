@@ -124,6 +124,7 @@ mob/ingame/verb
 		if(usr.beatrice==1&&usr.icon_state=="butterfly")return
 		if(usr.playing==0)return
 		if(usr.isGhost==1)return
+		if(T=="")return
 		var/len=length(T)
 		if(len>500)
 			T=copytext(T,1,500)
@@ -172,6 +173,7 @@ mob/ingame/verb
 		T=html_encode(T)
 		T=FilterString2(T)
 		var/len=length(T)
+		if(T=="")return
 		if(len>500)
 			T=copytext(T,1,500)
 
@@ -197,6 +199,7 @@ mob/ingame/verb
 		if(usr.zombie==1)return
 		if(usr.slender==1)return
 		if(usr.beatrice==1&&usr.icon_state=="butterfly")return
+		if(T=="")return
 		T=html_encode(T)
 		T=FilterString2(T)
 		var/len=length(T)
@@ -1110,11 +1113,11 @@ mob/verb/.hotkeyhelp()
 	set hidden = 1
 	usr << {"<u>Hotkeys:</u>
 <i>WASD - Walk
-C - Run 
-T - Say 
-5 - Emote 
-Y - Whisper 
-O - OOC 
+C - Run
+T - Say
+5 - Emote
+Y - Whisper
+O - OOC
 CTRL + WASD - Look around</i>"}
 mob/var/list/ignorelist=new/list()
 mob/verb
