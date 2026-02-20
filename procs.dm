@@ -1135,10 +1135,12 @@ mob/owner/verb
 		set category = "Admin"
 		if(AntagNotices==1)
 			AntagNotices=0
-			usr << "Notices has been disabled"
+			if(usr.key in Owner)
+				for(var/mob/A in world)A << "Antag Notices has been disabled!"
 		else
 			AntagNotices=1
-			usr << "Notices has been enabled"
+			if(usr.key in Owner)
+				for(var/mob/A in world)A << "Antag Notices has been enabled!"
 	Admin_Announce(T as text)
 		set category="Admin"
 		if(T=="")return
