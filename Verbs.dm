@@ -616,9 +616,10 @@ mob/verb
 		usr.playi=null
 	Who()
 		var player_num=0
-		for(usr in world)
-			player_num+=1
-			usr << "[usr.key]"
+		for(var/mob/A in world)
+			if(A.client)
+				player_num+=1
+				usr << "[A.key]"
 		usr << "<b>Total Players: [player_num]</b>"
 	OOC(T as text)
 		//set name="OOC:"
