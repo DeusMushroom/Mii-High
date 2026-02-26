@@ -20,6 +20,7 @@ var/const/Title_Tetradka='tetradka.ogg'
 var/const/Title_Zombo='dark.ogg'
 var/const/Title_Devocka='vedma.ogg'
 var/const/Title_Doppel='11.ogg'
+var/const/Title_Krovosos='title_Vampire.ogg'
 mob/proc/GameTitle()
 	if(src.client)
 		src << sound(null)
@@ -68,7 +69,7 @@ mob/proc/GameTitle()
 			src.loc=locate(/turf/Locations/TitleDoppel)
 		else if(gamemode=="Vampire")
 			if(src.mutemusic==1)goto enderz
-			var/sound/S = sound('title_Vampire.ogg', 1, 0, 100, src.mastervolume ) //Output the sound to the client with the desired volume
+			var/sound/S = sound(Title_Krovosos, 1, 0, 100, src.mastervolume ) //Output the sound to the client with the desired volume
 			src<<S
 			src.playi=S
 			:enderz
