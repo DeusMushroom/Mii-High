@@ -861,9 +861,10 @@ obj/Misc
 				usr.updatesp()
 				del src
 	Apple
-        iweight=0.5
+        name="Apple"
 		icon='apple.dmi'
 		idesc="Juicy, red apple! It contains many vitamins."
+        iweight=1
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -885,9 +886,10 @@ obj/Misc
 				usr.updatesp()
 				del src
 	Banana
-        iweight=0.7
+        name="Banana"
 		icon='banana.dmi'
 		idesc="A healthy bunch of bananas. It looks delicious."
+        iweight=2
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -909,9 +911,10 @@ obj/Misc
 				usr.updatesp()
 				del src
 	Orange
-        iweight=0.5
+        name="Orange"
 		icon='orange.dmi'
 		idesc="A delicious orange. It contains a lot of vitamin C!"
+        iweight-1
 		verb
 			Pick_Up()
 				set src in oview(1)
