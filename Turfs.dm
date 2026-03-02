@@ -863,7 +863,7 @@ obj/Misc
 	Apple
 		icon='apple.dmi'
 		idesc="Juicy, red apple! It contains many vitamins."
-        iweight=1
+        iweight = 1
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -887,7 +887,7 @@ obj/Misc
 	Banana
 		icon='banana.dmi'
 		idesc="A healthy bunch of bananas. It looks delicious."
-        iweight=2
+        iweight = 2
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -911,7 +911,7 @@ obj/Misc
 	Orange
 		icon='orange.dmi'
 		idesc="A delicious orange. It contains a lot of vitamin C!"
-        iweight=1
+        iweight = 1
 		verb
 			Pick_Up()
 				set src in oview(1)
