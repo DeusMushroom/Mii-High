@@ -861,6 +861,7 @@ obj/Misc
 				usr.updatesp()
 				del src
 	Apple
+        iweight-0.5
 		icon='apple.dmi'
 		idesc="Juicy, red apple! It contains many vitamins."
 		verb
@@ -883,8 +884,8 @@ obj/Misc
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
-iweight=1
 	Banana
+        iweight=0.7
 		icon='banana.dmi'
 		idesc="A healthy bunch of bananas. It looks delicious."
 		verb
@@ -907,8 +908,8 @@ iweight=1
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
-iweight=2
 	Orange
+        iweight=0.5
 		icon='orange.dmi'
 		idesc="A delicious orange. It contains a lot of vitamin C!"
 		verb
@@ -931,7 +932,6 @@ iweight=2
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
-iweight=1
 	Yen
 		icon='money.dmi'
 		curamount=25
