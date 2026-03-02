@@ -861,7 +861,7 @@ obj/Misc
 				usr.updatesp()
 				del src
 	Apple
-        iweight-0.5
+        iweight=0.5
 		icon='apple.dmi'
 		idesc="Juicy, red apple! It contains many vitamins."
 		verb
