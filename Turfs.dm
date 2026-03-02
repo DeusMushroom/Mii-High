@@ -863,7 +863,6 @@ obj/Misc
 	Apple
 		icon='apple.dmi'
 		idesc="Juicy, red apple! It contains many vitamins."
-        iweight = 1
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -884,10 +883,10 @@ obj/Misc
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
+iweight=1
 	Banana
 		icon='banana.dmi'
 		idesc="A healthy bunch of bananas. It looks delicious."
-        iweight = 2
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -908,10 +907,10 @@ obj/Misc
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
+iweight=2
 	Orange
 		icon='orange.dmi'
 		idesc="A delicious orange. It contains a lot of vitamin C!"
-        iweight = 1
 		verb
 			Pick_Up()
 				set src in oview(1)
@@ -932,6 +931,7 @@ obj/Misc
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
+iweight=1
 	Yen
 		icon='money.dmi'
 		curamount=25
