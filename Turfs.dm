@@ -909,7 +909,6 @@ obj/Misc
 	Orange
 		icon='orange.dmi'
 		idesc="A delicious orange. It contains a lot of vitamin C!"
-        weight=1
 		verb
 			Pick_Up()
 				set src in oview(1)
