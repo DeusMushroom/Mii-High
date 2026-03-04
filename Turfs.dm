@@ -904,7 +904,7 @@ obj/Misc
 				set category = null
 				if(usr.playing==0)return
 				usr << "You eat a banana, feeling much more energized."
-				usr.stamina+=rand(10,30)
+				usr.stamina+=rand(20,40)
 				if(usr.stamina>99)usr.stamina=100
 				usr.updatesp()
 				del src
