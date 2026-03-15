@@ -371,6 +371,32 @@ proc
 					A.thirst=0
 					:no
 				B.DeathCheck()
+	AoOniAttack(mob/A,mob/B)
+		if(A.AoOni==1)
+			if(A.stamina<8)return
+			if(A==B)
+				for(var/mob/n in range(8,B))
+					n << "[n.fightfont][A] fucks themself!"
+			else
+				for(var/mob/n in range(8,B))
+					n << "[n.fightfont][A] vigorously fucks [B]!"
+			A.stamina-=8
+			A.canattack=0
+			spawn(22) A.canattack=1
+			if(B.dead==0)
+				var/hprand=rand(1,24)
+				B.hp-=hprand
+				A.hp+=hprand-rand(1,hprand)
+				if(A.hp>99)
+					A.hp=100
+				A.updatehp()
+				B.updatehp()
+				A.thirst-=hprand-4
+				if(A.thirst<1)
+					if(A==B)goto no
+					A.thirst=0
+					:no
+				B.DeathCheck()
 
 var/const/Sprayer='spraying_2.wav'
 var/Bokkendmg=12

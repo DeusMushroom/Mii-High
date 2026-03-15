@@ -203,6 +203,7 @@ obj
 		verb/Store()
 			set src in oview(1)
 			if(usr.shinigami==1)return
+			if(usr.AoOni==1)return
 			if(hoarddelayer==1)return
 			if(usr.playing==0)return
 			var/obj/fisthold=null

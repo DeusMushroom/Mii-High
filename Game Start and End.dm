@@ -39,6 +39,8 @@ proc
 				//kamsg="The Shinigami"
 			if(M.isGhost==1)
 				world << "The Ghost was played by [M.realkey]"
+			if(M.AoOni==1)
+				world << "The Ao Oni was played by [M.realkey]"
 			if(gamemode=="Death Note")
 				for(var/obj/Misc/Death_Note/O in M)
 					if(O in M)
@@ -94,11 +96,22 @@ proc
 					world << "[B.alias] / [B.realname] ([B.realkey]) <font color=blue>(Nanaya)<font color=blue>(Escaped)</font></font>!"
 				if(B.vampire==1)
 					world << "[B.alias] / [B.realname] ([B.key]) <font color=red>(Vampire)<font color=blue>(Escaped)</font></font>!"
-
+		if(gamemode=="Ao Oni")
+			for(var/mob/C in alivelist)
+				if(C.AoOni==1)
+					world << "[C.alias] / [C.realname] ([C.realkey]) <font color=blue>(Ao Oni)</font></font>!"
+			for(var/mob/C in deadlist)
+				if(C.AoOni==1)
+					world << "[C.alias] / [C.realname] ([C.key]) <font color=red>(Ao Oni)<font color=red>(Dead)</font></font>!"
+			for(var/mob/C in escapelist)
+				if(C.AoOni==1)
+					world << "[C.alias] / [C.realname] ([C.realkey]) <font color=blue>(Ao Oni)<font color=blue>(Escaped)</font></font>!"
+		
 		plays+=escapelist.len
 		//var/deadpeep=deadlist.len
 		if(gamemode=="Vampire")goto enderr
 		if(gamemode=="Zombie")goto enderr
+		if(gamemode=="Ao Oni")goto enderr
 		/////
 		if(deadlist.len==0) world << "No one died during the game; therefore, it seems time ran out."
 		else if(plays==0) world << "Everyone has died this round! Somehow..."
@@ -163,6 +176,8 @@ proc/CheckGame()
 	counter=alivelist.len
 	for(var/mob/M in world)
 		if(M.shinigami==1)
+			counter-=1
+		if(M.AoOni==1)
 			counter-=1
 		if(M.isGhost==1)
 			counter-=1

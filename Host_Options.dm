@@ -141,7 +141,7 @@ mob/Host/verb
 	.Hostchangemode()
 		set hidden=1
 		if(GameOn==1)return
-		var/pp=input(usr,"Please choose a desired mode you wish to use.") in list("Normal","Ghost","Death Note","Doppelganger","Secret","Vampire","Witch","Zombie", "Death Note Classic", "Extended")//"Slender")
+		var/pp=input(usr,"Please choose a desired mode you wish to use.") in list("Normal","Ghost","Death Note","Doppelganger","Secret","Vampire","Witch","Zombie", "Death Note Classic", "Extended", "Ao Oni")//"Slender")
 		if(pp==gamemode)
 			usr << "Thats the current game mode already."
 			return

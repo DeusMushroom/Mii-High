@@ -42,6 +42,12 @@ mob/verb
 		dnc+=1 //Temporary fix. Revert to dn+=1 at a later time.
 		votedusers+=usr.key
 		winshow(usr,"votingsys",0)
+	voteAoOni()
+		set hidden = 1
+		if(usr.key in votedusers)return
+		oni+=1 //Temporary fix. Revert to dn+=1 at a later time.
+		votedusers+=usr.key
+		winshow(usr,"votingsys",0)
 	voteghost()
 		set hidden = 1
 		if(usr.key in votedusers)return
@@ -73,6 +79,7 @@ proc/GameModePollEnd()
 		jm=0
 		am=0
 		slndr=0
+		oni=0
 		return
 	leadmode="None"
 	leadmode2="None"
@@ -89,7 +96,8 @@ proc/GameModePollEnd()
 	world << "<b><small><font color = #330066>Poll Bot</b></font><small>: Vampire had: [tsu] votes."
 	world << "<b><small><font color = #330066>Poll Bot</b></font><small>: Witch had: [wm] votes."
 	world << "<b><small><font color = #330066>Poll Bot</b></font><small>: Zombie had: [zm] votes."
-	var/weiner=max(dgm,ghostmode,wm,nm,zm,secret,dnc,tsu)
+	world << "<b><small><font color = #330066>Poll Bot</b></font><small>: Ao Oni had: [oni] votes."
+	var/weiner=max(dgm,ghostmode,wm,nm,zm,secret,dnc,tsu,oni)
 	if(weiner==nm)
 		if(leadmode=="None")
 			leadmode="Normal"
@@ -146,6 +154,13 @@ proc/GameModePollEnd()
 			leadmode2="Vampire"
 		else
 			leadmode3="Vampire"
+	if(weiner==oni)
+		if(leadmode=="None")
+			leadmode="Ao Oni"
+		else if(leadmode2=="None")
+			leadmode2="Ao Oni"
+		else
+			leadmode3="Ao Oni"
 	if(leadmode2=="None")
 		world << "<b><small><font color = #330066>Poll Bot</b></font><small>: Game Mode has changed to the winning mode: [leadmode]"
 		goto done
@@ -162,7 +177,7 @@ proc/GameModePollEnd()
 		:nop
 		leadmode=pick(randommode)
 		world << "<b><small><font color = #330066>Poll Bot</b></font><small>: Game mode has changed to the random winning mode: [leadmode]"
-	else if (dnc==0&&dn==0&&ghostmode==0&&wm==0&&sm==0&&nm==0&&zm==0&&tsu==0&&secret==0&&dgm==0&&jm==0&&am==0&&slndr)
+	else if (dnc==0&&dn==0&&ghostmode==0&&wm==0&&sm==0&&nm==0&&zm==0&&tsu==0&&secret==0&&dgm==0&&jm==0&&am==0&&oni==0&&slndr)
 		if(leadmode=="None")
 			leadmode="Extended"
 		else if(leadmode2=="None")
@@ -197,6 +212,7 @@ proc/GameModePollEnd()
 	tsu=0
 	am=0
 	slndr=0
+	oni=0
 	if(gamemode==null) gamemode="Normal"
 	for(var/mob/A in world)
 		if(A.ai==0)

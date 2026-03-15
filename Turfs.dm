@@ -44,7 +44,6 @@ turf
 		icon='gfx/titlescreen.png'
 		density=1
 		layer=30
-	TitleSlender
 	TitleNanaya
 		name="Title Screen - Vampire Mode"
 		icon='gfx/titlenanaya.png'
@@ -76,6 +75,11 @@ turf
 		icon='gfx/title_dg.png'
 		density=1
 		layer=30
+	TitleAoOni
+		name="Title Screen - Ao Oni Mode"
+		icon='gfx/AoOniBG.png'
+		density=1
+		layer=30
 	TitleJM
 	TitleSecret
 		name="Title Screen - Secret Mode"
@@ -95,6 +99,7 @@ turf
 		TitleDN
 		TitleArt
 		Title_Ghost
+		TitleAoOni
 	School_Floors
 		School_Floor
 			name="School Floor"
@@ -2552,6 +2557,7 @@ obj
 					set src in oview(1)
 					if(usr.playing==0)return
 					if(usr.shinigami==1)return
+					if(usr.AoOni==1)return
 					Move(usr,src)
 				//	usr.overlays+='teddy overlay.dmi'
 				Drop()
@@ -3348,8 +3354,10 @@ mob/var/run_speed=3 //
 mob/Move()
 	if(src.barrier==1)return 0
 	if(src.playing==1)
-		if(src.invisibility==0)
+		if(src.invisibility==0&&src.AoOni==0)
 			range(usr,8) << sound('footsteps.wav')
+		if(src.invisibility==0&&src.AoOni==1)
+			range(usr,8) << sound('AoOni_footsteps.wav')
 		if(src.koed==0)
 			for(var/mob/A in view())
 				if(A.pulling==src)

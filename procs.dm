@@ -14,12 +14,14 @@ mob/corpse
 		set src in oview(1)
 		if(usr.playing==0)return
 		if(usr.shinigami==1)return
+		if(usr.AoOni==1)return
 		usr.bodysearch=2
 		usr.looking=src
 		usr.client.statpanel="[src]"
 	verb/Plant_On_Body()
 		set src in oview(1)
 		if(usr.shinigami==1)return
+		if(usr.AoOni==1)return
 		if(hoarddelayer==1)return
 		if(usr.playing==0)return
 		var/obj/fisthold=null
@@ -55,6 +57,11 @@ mob/corpse
 		else if(usr.vampire==1&&usr.equipname=="Fists")
 			if(src in oview(1))
 				VampireBite(usr,src)
+		else if(usr.AoOni==1&&usr.equipname=="Fists")
+			if(src in oview(1))
+				range(8,usr) << "[fightfont][usr] bites and chews on the [src]!</b>"
+				usr.canattack=0
+				spawn(18)usr.canattack=1
 		else if(usr.nanaya==1&&usr.equipname=="Nanatsu-Yoru")
 			if(src in oview(1))
 				NanayaAttack(usr,src)
@@ -231,6 +238,7 @@ proc
 		A.chatavatar=M.chatavatar
 		A.nanaya=M.nanaya
 		A.vampire=M.vampire
+		A.AoOni=M.AoOni
 		//A.toucheddn=0
 		A.infected=0
 		A.icon=M.icon
@@ -270,6 +278,7 @@ proc
 		A.beatrice=M.beatrice
 		A.nanaya=M.nanaya
 		A.vampire=M.vampire
+		A.AoOni=M.AoOni
 		A.shinigamieyes=M.shinigamieyes
 		A.realkey=M.key
 		A.loc=M.loc
@@ -965,7 +974,7 @@ mob/owner/verb
 			if(n.playing==1)
 				playerz+=n
 		playerz+="Cancel"
-		var/list/moders=list("Killer", "Doppelganger","Witch","Shinigami","Kira","Shinigami Eyes", "Ghost", "Zombie", "Vampire", "Nanaya")
+		var/list/moders=list("Killer", "Doppelganger","Witch","Shinigami","Kira","Shinigami Eyes", "Ghost", "Zombie", "Vampire", "Nanaya","Ao Oni")
 		var/mob/I=input(usr,"Who do you wish to make the new role for?") in playerz
 		var/mob/M=input(usr,"Which role would you like to select?") in moders
 		if(M=="Shinigami")

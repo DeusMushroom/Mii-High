@@ -452,6 +452,9 @@ client/Topic(href, h_l[])
     if(href=="votetsu")
         winshow(usr,"poller",0)
         tsu+=1
+    if(href=="voteoni")
+        winshow(usr,"poller",0)
+        tsu+=1
     var/s = h_l["fuse"]
     if( s )
         s = url_decode(s)

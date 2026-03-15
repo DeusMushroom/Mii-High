@@ -848,7 +848,7 @@ mob/verb
 						usr << "Multikeying disabled."
 		if(opt=="Game Mode")
 			if(GameOn==1)return
-			var/pp=input(usr,"Please choose a desired mode you wish to use.") in list("Normal","Death Note","Doppelganger","Secret","Vampire","Witch","Zombie", "Death Note Classic", "Extended")// "Slender")
+			var/pp=input(usr,"Please choose a desired mode you wish to use.") in list("Normal","Death Note","Doppelganger","Secret","Vampire","Witch","Zombie", "Death Note Classic", "Extended", "Ao Oni")// "Slender")
 			if(pp==gamemode)
 				usr << "Thats the current game mode already."
 				return
@@ -895,6 +895,7 @@ var/jm=0
 var/tsu=0
 var/dgm=0
 var/slndr=0
+var/oni=0
 var
 	poller={"
 		<html>
@@ -966,6 +967,11 @@ mob/player
 		else if(usr.vampire==1&&usr.equipname=="Fists")
 			if(src in oview(1))
 				VampireBite(usr,src)
+		else if(usr.AoOni==1&&usr.equipname=="Fists")
+			if(src in oview(1))
+				range(8,usr) << "[fightfont][usr] bites and chews on the [src]!</b>"
+				usr.canattack=0
+				spawn(18)usr.canattack=1
 		else if(usr.nanaya==1&&usr.equipname=="Nanatsu-Yoru")
 			if(src in oview(1))
 				NanayaAttack(usr,src)

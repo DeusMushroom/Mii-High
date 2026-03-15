@@ -113,6 +113,33 @@ mob/shinigami/verb
 							kiradie+=params2list("[A.realname]=5:00 AM")
 					else
 						usr << "[A] declined your offer"
+mob/AoOni/proc
+	InviseStamina()
+		if(src.playing==1&&src.stamina>6&&src.AoOnioninvise==1)
+			src.stamina-=20
+
+		
+mob/AoOni/verb
+	Invise()
+		set category = "Ao Oni"
+		if(src.AoOnioninvise==0)
+			src.density=0
+			src.invisibility=1
+			src.AoOnioninvise=1
+			usr << "You're invisible now!"
+		else
+			src.density=1
+			src.invisibility=0
+			src.AoOnioninvise=0
+			usr << "You're not invisible anymore!"
+	HorrorSound()
+		set category = "Ao Oni"
+		if(AoOniHorrorSound==0)
+			range(8,usr) << sound('Ao Oni ost.ogg')
+			AoOniHorrorSound=1
+			sleep(300)
+			AoOniHorrorSound=0
+		
 mob/proc/KiraDie()
 	soundmob(src, 7, bodyfall, TRUE)
 	src.playing=0
@@ -135,7 +162,7 @@ proc/AutoHostStart(var/n)
 	world << "<b><font color=blue>AutoHost</b> </font>Autohosting enabled, configuring game settings."
 	sleep(20)
 	if(autopoll==0)
-		var/list/nnn=list("Normal","Witch","Zombie","Doppelganger","Secret","Ghost","Vampire", "Death Note Classic", "Extended")//, "Death Note", "Slender") These are deprecated for now.
+		var/list/nnn=list("Normal","Witch","Zombie","Doppelganger","Secret","Ghost","Vampire", "Death Note Classic", "Ao Oni", "Extended")//, "Death Note", "Slender") These are deprecated for now.
 		gamemode=pick(nnn)
 		world << "<b><font color=blue>AutoHost</b> </font>Game mode changed to [gamemode]"
 		world << "<b><font color=blue>AutoHost</b> </font>Game will start in [autohostshowdelay] minutes."
@@ -155,6 +182,8 @@ proc/AutoHoster(var/n)
 	else return
 var/list/charpopper=new/list()
 var/list/killerpopper=new/list()
+
+
 proc/StartGame()
 	set background=1
 	if(GameOn==1)
@@ -235,6 +264,13 @@ proc/StartGame()
 				world << "<b><font color=aqua>[lightbot]</b> </font>Auto hosting will retry in [autohostshowdelay] more minutes."
 				AutoHoster(autohostcount)
 			return
+	else if(gamemode=="Ao Oni")
+		if(playersjoined<1)
+			world << "<b><font color=aqua>[lightbot]</b> </font>Need a player for this mode."
+			if(autohost==1)
+				world << "<b><font color=aqua>[lightbot]</b> </font>Auto hosting will retry in [autohostshowdelay] more minutes."
+				AutoHoster(autohostcount)
+			return
 	//else if (gamemode == "Lyoko")
 	//	if (playersjoined<1)
 	//		world << "<b><font color=aqua>[lightbot]</b> </font>Need 6 or more players for this mode."
@@ -255,7 +291,7 @@ proc/StartGame()
 		world << "<b>New light testing is being initiated, please be patient with the load time.</b>"
 	if(gamemode=="Secret")
 		oldmode="Secret"
-		gamemode=pick("Normal","Witch","Zombie","Doppelganger","Secret","Ghost","Vampire","Death Note", "Death Note Classic", "Extended")// "Slender")
+		gamemode=pick("Normal","Witch","Zombie","Doppelganger","Secret","Ghost","Vampire","Death Note", "Death Note Classic", "Extended", "Ao Oni")// "Slender")
 		hidemsg=1
 	if(mapp=="Default"||mapp=="Default 2"||mapp=="WorldV")
 		world << "Loading the default map."
@@ -275,7 +311,7 @@ proc/StartGame()
 	else if(mapp=="WorldV")
 		dmmload('WorldV.dmm')
 	//sleep(1)
-	ItemSpawner()
+	ItemSpawner() // causes runtimes in world start
 	GameOn=1
 	for(var/obj/Door/O in world)
 		sd_light_spill_turfs += O
@@ -335,6 +371,54 @@ proc/StartGame()
 		I.contents+=O
 		I.verbs+=typesof(/mob/shinigami/verb)
 		if(I.rpchat==1)I.new_chatbox()
+	if(gamemode=="Ao Oni")
+		for(var/mob/player/M in world)
+			if(M.AoOni==1)
+				var/obj/P=locate(/obj/Spawns/ShiniSpawn)
+				M.loc=P.loc
+		var/mob/O=pick(killerpopper)
+		killerpopper-=O
+		charpopper-=O
+		O.frozen=0
+		O.portal=0
+		O.icon='Ao-Oni.dmi'
+		O.currentrole="The Ao Oni"
+		O.AoOni=1 // temp
+		O.chatavatar='Oi.dmi'
+		O.realname="Ao Oni"
+
+		O.alias="The Ao Oni"
+		O.invisibility=0
+		O.client.command_text="Say "
+		O.density=1
+		O.playing=1
+		O.dead=0
+		O.realkey=O.key
+		O.name="The Ao Oni"
+		O << "You are the Ao Oni! You are very, well...bored! Kill everyone to win!"
+		O.hp=800
+		O.stamina=100
+		O.verbs+=typesof(/mob/AoOni/verb)
+		O.verbs+=typesof(/mob/ingame/verb)
+		var/obj/weapons/Fists/K = new/obj/weapons/Fists
+		O.contents+=K
+		K.suffix="Equipped"
+		O.equipname="Fists"
+		O.canattack=1
+		//if(O.rpchat==1)O.new_chatbox()
+		givereq(O)
+		//var/room=null
+		
+		
+		
+		/// roomer+=1
+		//Playerpick(A)
+
+		//var/obj/P=locate(room)
+		//A.loc=P.loc
+		//	if(A.shinigami==0)
+		//		A.AddHud()
+		//		A.HPHud()
 	if(gamemode=="Ghost")
 		var/mob/I=pick(killerpopper)
 		killerpopper-=I
@@ -771,6 +855,14 @@ proc/StartGame()
 		if(hidemsg==0)world << "<font size=3><b><font color=red>Warning:</font></b> Dead body located on the premises. After advanced program analysis the body appeared to have scratch and bite marks all on it. Facility has been locked down until This System's authorities can be reached"
 		for(var/mob/player/M in world)
 			if(M.zombie==1)
+				var/obj/P=locate(/obj/Spawns/ShiniSpawn)
+				M.loc=P.loc
+				M.HPHud()
+				break
+	else if(gamemode=="Ao Oni")
+		if(hidemsg==0)world << "<font size=3><b><font color=red>Warning:</font></b> Dead body located on the premises. After advanced program analysis the body appeared to have scratch and bite marks all on it. Facility has been locked down until This System's authorities can be reached"
+		for(var/mob/player/M in world)
+			if(M.AoOni==1)
 				var/obj/P=locate(/obj/Spawns/ShiniSpawn)
 				M.loc=P.loc
 				M.HPHud()

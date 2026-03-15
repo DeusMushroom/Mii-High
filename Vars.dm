@@ -21,6 +21,7 @@ var/const/Title_Zombo='dark.ogg'
 var/const/Title_Devocka='vedma.ogg'
 var/const/Title_Doppel='11.ogg'
 var/const/Title_Krovosos='title_Vampire.ogg'
+var/const/Title_AoOni='Ao Oni ost.ogg'
 mob/proc/GameTitle()
 	if(src.client)
 		src << sound(null)
@@ -81,11 +82,18 @@ mob/proc/GameTitle()
 			src.playi=S
 			:enderz
 			src.loc=locate(/turf/Locations/Title_Ghost)
+		else if(gamemode=="Ao Oni")
+			if(src.mutemusic==1)goto enderz
+			var/sound/S = sound(Title_AoOni, 1, 0, 100, src.mastervolume ) //Output the sound to the client with the desired volume
+			src<<S
+			src.playi=S
+			:enderz
+			src.loc=locate(/turf/Locations/TitleAoOni)
 	else return 0
 var/beatricesee=2
-var/adminicon				='crown.dmi'
+var/adminicon='crown.dmi'
 mob/var
-	chatavatar				='Oi.dmi'
+	chatavatar='Oi.dmi'
 	charhairavatar=null
 	dexterity=20
 	charhairavatarcolor=null
@@ -237,6 +245,9 @@ mob/var
 	washing=0
 	kira=0
 	shinigamieyes=0
+	AoOni=0
+	AoOnioninvise=0
+	AoOniHorrorSound=0
 	usingswitchbox=0
 	bloody=0
 	stamina=100

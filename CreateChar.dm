@@ -65,6 +65,8 @@ mob/verb
 		usr.charhair=null
 		usr.custcharacter()
 		usr.save()
+	//.custhotkeys()
+	// WIP
 	.custcharacter()
 		set hidden=1
 		if(usr.playing==1)return

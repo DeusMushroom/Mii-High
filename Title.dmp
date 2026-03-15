@@ -20,8 +20,8 @@
 "t" = (/turf/TitleArtist,/area)
 "u" = (/turf/Locations/Title_Ghost,/area)
 "v" = (/turf/TitleGhost,/area)
-"w" = (/turf/Locations/TitleSlender,/area)
-"x" = (/turf/TitleSlender,/area)
+"w" = (/turf/Locations/TitleAoOni,/area)
+"x" = (/turf/TitleAoOni,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaa

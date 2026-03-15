@@ -150,11 +150,6 @@ menu "menu"
 		command = ""
 		saved-params = "is-checked"
 	elem 
-		name = "View MOTD"
-		command = "viewmotd"
-		category = "Game Options"
-		saved-params = "is-checked"
-	elem 
 		name = "Client &Settings"
 		command = "ClientConfig"
 		category = "Game Options"
@@ -162,6 +157,11 @@ menu "menu"
 	elem 
 		name = "Customize Character"
 		command = "custcharacter"
+		category = "Game Options"
+		saved-params = "is-checked"
+	elem 
+		name = "Customize Hotkeys"
+		command = "custhotkeys"
 		category = "Game Options"
 		saved-params = "is-checked"
 	elem "unlock"
@@ -190,6 +190,11 @@ menu "menu"
 	elem 
 		name = "About"
 		command = "showabout"
+		category = "Help"
+		saved-params = "is-checked"
+	elem 
+		name = "View MOTD"
+		command = "viewmotd"
 		category = "Help"
 		saved-params = "is-checked"
 
@@ -737,6 +742,11 @@ window "GMode"
 		can-resize = false
 		is-pane = true
 		image-mode = center
+		outer-size = 420x520
+		outer-pos = 434,0
+		inner-size = 400x500
+		inner-pos = 10,10
+		screen-size = 1920x1128
 	elem "button56"
 		type = BUTTON
 		pos = 48,464
@@ -744,6 +754,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Change Hoard Delay"
 		command = "Hostchangehoarddelay"
@@ -754,6 +765,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Change Attack Delay"
 		command = "Hostchangeattackdelay"
@@ -766,6 +778,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -781,6 +794,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -794,6 +808,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Change Item Spawn Rate"
 		command = "Hostchangespawnrate"
@@ -804,6 +819,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Change Lethality"
 		command = "Hostchangelethality"
@@ -814,6 +830,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Change Game Hours"
 		command = "Hostchangehour"
@@ -824,6 +841,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Choose Game Mode"
 		command = "Hostchangemode"
@@ -834,6 +852,7 @@ window "GMode"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-size = 10
+		background-color = none
 		saved-params = "is-checked"
 		text = "Change Map"
 		command = "Hostchangemap"
@@ -846,6 +865,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 13
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Round Settings"
@@ -858,6 +878,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -873,6 +894,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -888,6 +910,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -903,6 +926,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -918,6 +942,7 @@ window "GMode"
 		font-family = "Comic Sans MS"
 		font-size = 8
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		border = sunken
 		saved-params = ""
@@ -1052,12 +1077,12 @@ window "PlayerConfig"
 		text-color = #8080ff
 		background-color = #000000
 		saved-params = ""
-		tabs = "Volume,Fightmsg,Profileconfig,Misc"
+		tabs = "Volume,Fightmsg,Profileconfig,Misc,custhotkeys"
 
 window "TheMainWin"
 	elem "TheMainWin"
 		type = MAIN
-		pos = 33,10
+		pos = 112,0
 		size = 1786x834
 		anchor1 = -1,-1
 		anchor2 = -1,-1
@@ -1247,11 +1272,6 @@ window "charcreation"
 		statusbar = false
 		can-minimize = false
 		image-mode = center
-		outer-size = 822x856
-		outer-pos = 434,0
-		inner-size = 800x800
-		inner-pos = 11,45
-		screen-size = 1920x1128
 	elem "button6"
 		type = BUTTON
 		pos = 200,584
@@ -1259,7 +1279,6 @@ window "charcreation"
 		anchor1 = 25,73
 		anchor2 = 37,76
 		font-size = 8
-		background-color = none
 		saved-params = "is-checked"
 		text = "Save"
 		command = "SaveProf"
@@ -1271,7 +1290,6 @@ window "charcreation"
 		anchor2 = 45,47
 		font-size = 8
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Flavor Text:"
@@ -1383,7 +1401,6 @@ window "charcreation"
 		anchor2 = 47,100
 		font-family = "Comic Sans MS"
 		font-size = 8
-		background-color = none
 		border = sunken
 		saved-params = "is-checked"
 		text = "Change Hair Color"
@@ -1397,7 +1414,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Charcter preview"
@@ -1409,7 +1425,6 @@ window "charcreation"
 		anchor2 = -1,-1
 		font-size = 10
 		text-color = #ffffff
-		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Provide a first and last name."
@@ -1452,7 +1467,6 @@ window "charcreation"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		text-color = #ffffff
-		background-color = none
 		saved-params = "is-checked"
 		text = "______"
 		command = "setcharname"
@@ -1496,6 +1510,82 @@ window "chatterpane"
 		saved-params = ""
 		tabs = "outputpane,ignorelist"
 		current-tab = "outputpane"
+
+window "custhotkeys"
+	elem "custhotkeys"
+		type = MAIN
+		pos = 434,0
+		size = 387x459
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		saved-params = "pos;is-minimized;is-maximized"
+		title = "Custom Hotkeys"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "button70"
+		type = BUTTON
+		pos = 112,304
+		size = 192x80
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-size = 15
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "OOC"
+		command = "ChangeChatColor"
+	elem "button7"
+		type = BUTTON
+		pos = 80,216
+		size = 192x80
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-size = 15
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "Emote"
+		command = "ChangeChatColor"
+	elem "button5"
+		type = BUTTON
+		pos = 72,128
+		size = 192x80
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-size = 15
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "Say"
+		command = "ChangeChatColor"
+	elem "button28"
+		type = BUTTON
+		pos = 80,48
+		size = 192x80
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-size = 15
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "Run"
+		command = "ChangeChatColor"
+	elem "label13"
+		type = LABEL
+		pos = 64,8
+		size = 244x48
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-size = 10
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Disable Roles/Self Click"
 
 window "deathnote"
 	elem "deathnote"
@@ -2524,18 +2614,24 @@ window "votingsys"
 		statusbar = false
 		can-minimize = false
 		can-resize = false
-	elem "label14"
-		type = LABEL
-		pos = 0,-1
-		size = 557x391
-		anchor1 = 0,0
-		anchor2 = 100,100
-		background-color = #000000
-		is-disabled = true
-		saved-params = ""
-		text = ""
-		image-mode = stretch
-		align = left
+		outer-size = 579x446
+		outer-pos = 434,0
+		inner-size = 557x390
+		inner-pos = 11,45
+		screen-size = 1920x1128
+	elem "button57"
+		type = BUTTON
+		pos = 216,296
+		size = 112x56
+		anchor1 = 39,76
+		anchor2 = 59,90
+		font-family = "Comic Sans MS"
+		text-color = #ffffff
+		background-color = #330033
+		saved-params = "is-checked"
+		text = "Ao Oni"
+		command = "voteAoOni"
+		is-flat = true
 	elem "button61"
 		type = BUTTON
 		pos = 368,160
@@ -2543,6 +2639,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Ghost"
 		command = "voteghost"
@@ -2554,6 +2651,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Death Note"
 		command = "votedeathnote"
@@ -2567,6 +2665,7 @@ window "votingsys"
 		font-family = "Comic Sans MS"
 		font-size = 14
 		text-color = #ffffff
+		background-color = none
 		is-transparent = true
 		saved-params = ""
 		text = "Please vote for a mode."
@@ -2577,6 +2676,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Vampire"
 		command = "voteVampire"
@@ -2588,6 +2688,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Secret"
 		command = "votesecret"
@@ -2599,6 +2700,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Zombie"
 		command = "votezombie"
@@ -2610,6 +2712,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Witch"
 		command = "votewitch"
@@ -2621,6 +2724,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Doppeganger"
 		command = "votedoppelganger"
@@ -2632,6 +2736,7 @@ window "votingsys"
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		font-family = "Comic Sans MS"
+		background-color = none
 		saved-params = "is-checked"
 		text = "Normal"
 		command = "votenormal"
